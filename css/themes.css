@@ -1,0 +1,155 @@
+/* ===================================
+   THEMES.CSS - Sistema de Temas
+   =================================== */
+
+/* Tema Padrão: Dark Neon */
+[data-theme="dark-neon"] {
+  --color-bg-primary: #0a0e27;
+  --color-bg-secondary: #151932;
+  --color-bg-sidebar: rgba(255, 255, 255, 0.05);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a0a0a0;
+  --color-accent: #00eeff;
+  --color-accent-hover: #00d4ff;
+  --color-accent-glow: rgba(0, 238, 255, 0.6);
+  
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(0, 238, 255, 0.3);
+  --glass-blur: 15px;
+  
+  --shadow-glow: 0 0 20px rgba(0, 238, 255, 0.4);
+  
+  /* Cores de destaque para itens */
+  --color-home: #ff6f61;
+  --color-profile: #f39c12;
+  --color-analytics: #2ecc71;
+  --color-notifications: #3498db;
+  --color-settings: #9b59b6;
+  --color-logout: #e74c3c;
+}
+
+/* Tema: Cyberpunk */
+[data-theme="cyberpunk"] {
+  --color-bg-primary: #0d0221;
+  --color-bg-secondary: #1a0a2e;
+  --color-bg-sidebar: rgba(255, 20, 147, 0.08);
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #b8b8b8;
+  --color-accent: #ff1493;
+  --color-accent-hover: #ff69b4;
+  --color-accent-glow: rgba(255, 20, 147, 0.6);
+  
+  --glass-bg: rgba(255, 20, 147, 0.08);
+  --glass-border: rgba(255, 20, 147, 0.4);
+  --glass-blur: 20px;
+  
+  --shadow-glow: 0 0 25px rgba(255, 20, 147, 0.5);
+  
+  --color-home: #ff00ff;
+  --color-profile: #00ffff;
+  --color-analytics: #ffff00;
+  --color-notifications: #ff6600;
+  --color-settings: #00ff00;
+  --color-logout: #ff0066;
+}
+
+/* Tema: Sunset Pastel */
+[data-theme="sunset-pastel"] {
+  --color-bg-primary: #2d1b3d;
+  --color-bg-secondary: #3d2b4d;
+  --color-bg-sidebar: rgba(255, 183, 197, 0.1);
+  --color-text-primary: #fff5f7;
+  --color-text-secondary: #e0c3c8;
+  --color-accent: #ffb7c5;
+  --color-accent-hover: #ff9eb5;
+  --color-accent-glow: rgba(255, 183, 197, 0.5);
+  
+  --glass-bg: rgba(255, 183, 197, 0.1);
+  --glass-border: rgba(255, 183, 197, 0.3);
+  --glass-blur: 18px;
+  
+  --shadow-glow: 0 0 20px rgba(255, 183, 197, 0.4);
+  
+  --color-home: #ff9a9e;
+  --color-profile: #fecfef;
+  --color-analytics: #a8edea;
+  --color-notifications: #fed6e3;
+  --color-settings: #d299c2;
+  --color-logout: #ff6b6b;
+}
+
+/* Tema: Forest Minimal */
+[data-theme="forest-minimal"] {
+  --color-bg-primary: #1a2e1a;
+  --color-bg-secondary: #243524;
+  --color-bg-sidebar: rgba(144, 238, 144, 0.08);
+  --color-text-primary: #e8f5e8;
+  --color-text-secondary: #a8c5a8;
+  --color-accent: #90ee90;
+  --color-accent-hover: #7ddf7d;
+  --color-accent-glow: rgba(144, 238, 144, 0.5);
+  
+  --glass-bg: rgba(144, 238, 144, 0.08);
+  --glass-border: rgba(144, 238, 144, 0.3);
+  --glass-blur: 12px;
+  
+  --shadow-glow: 0 0 18px rgba(144, 238, 144, 0.3);
+  
+  --color-home: #98fb98;
+  --color-profile: #8fbc8f;
+  --color-analytics: #3cb371;
+  --color-notifications: #20b2aa;
+  --color-settings: #66cdaa;
+  --color-logout: #cd5c5c;
+}
+
+/* Tema: Ocean Deep */
+[data-theme="ocean-deep"] {
+  --color-bg-primary: #001f3f;
+  --color-bg-secondary: #003366;
+  --color-bg-sidebar: rgba(0, 191, 255, 0.08);
+  --color-text-primary: #e6f2ff;
+  --color-text-secondary: #99ccff;
+  --color-accent: #00bfff;
+  --color-accent-hover: #1e90ff;
+  --color-accent-glow: rgba(0, 191, 255, 0.5);
+  
+  --glass-bg: rgba(0, 191, 255, 0.08);
+  --glass-border: rgba(0, 191, 255, 0.3);
+  --glass-blur: 16px;
+  
+  --shadow-glow: 0 0 22px rgba(0, 191, 255, 0.4);
+  
+  --color-home: #00ced1;
+  --color-profile: #48d1cc;
+  --color-analytics: #40e0d0;
+  --color-notifications: #00bfff;
+  --color-settings: #1e90ff;
+  --color-logout: #ff6347;
+}
+
+/* Glassmorphism Mixin (via classes) */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+/* Animação de transição entre temas */
+body {
+  transition: 
+    background-color var(--transition-slow),
+    color var(--transition-base);
+}
+
+.glass,
+.sidebar,
+.nav-link,
+button {
+  transition: 
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    color var(--transition-base);
+}
