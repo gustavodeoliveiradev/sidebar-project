@@ -20,9 +20,11 @@ Uma sidebar modular, acessível e personalizável com temas dinâmicos.
 | HTML semântico com ARIA | ✅ Concluído |
 | CSS Variables + Glassmorphism | ✅ Concluído |
 | Sistema de temas (dark, neon, pastel) | ✅ Concluído |
-| Toggle expandir/colapsar | 🚧 Em breve |
+| Layout da sidebar com glassmorphism | ✅ Concluído |
+| Componentes visuais (tooltips, badges, ripple) | ✅ Concluído |
+| Toggle expandir/colapsar | 🚧 Em breve (Dia 4) |
 | Responsividade mobile | 🚧 Em breve |
-| Animações e micro-interações | 🚧 Em breve |
+| Animações avançadas + micro-interações | 🚧 Em breve |
 | Acessibilidade completa (keyboard nav) | 🚧 Em breve |
 | Deploy no GitHub Pages | 🚧 Em breve |
 
@@ -31,7 +33,7 @@ Uma sidebar modular, acessível e personalizável com temas dinâmicos.
 ## 🖼️ Preview
 
 ### Tema Dark (Glassmorphism)
-> A sidebar utiliza efeito glassmorphism com blur no background, variáveis CSS dinâmicas e transições suaves entre os temas dark, neon e pastel.
+> Sidebar com efeito glassmorphism, bordas neon, tooltips no modo colapsado e badge de notificação com animação pulse.
 
 ---
 
@@ -43,7 +45,7 @@ sidebar-project/
 ├── css/
 │   ├── base.css        # Reset, variáveis globais, fonts
 │   ├── layout.css      # Sidebar, grid, responsive
-│   ├── components.css  # Botões, cards, tooltips
+│   ├── components.css  # Botões, cards, tooltips, badges, ripple
 │   └── themes.css      # Temas dark/neon/pastel
 ├── js/
 │   ├── main.js         # Init e event listeners
@@ -117,11 +119,12 @@ body[data-theme="seu-tema"] {
 |---|---|---|
 | 1 | Estrutura HTML semântica + setup | `feat: setup inicial com HTML semântico e estrutura de pastas` |
 | 2 | CSS Variables + sistema de temas + glassmorphism | `style: adiciona CSS variables e tema dark neon` |
-| 3 | JS: toggle sidebar + active state + tooltips | `feat: adiciona toggle manual e estados ativos` |
-| 4 | Responsividade + mobile menu | `feat: torna sidebar responsiva para mobile` |
-| 5 | Animações avançadas + micro-interações | `style: aprimora animações e feedback visual` |
-| 6 | Acessibilidade (ARIA, keyboard nav) | `chore: melhora acessibilidade e navegação por teclado` |
-| 7 | Polish + deploy no GitHub Pages | `docs: finaliza projeto e configura GitHub Pages` |
+| 3 | Layout da sidebar + componentes visuais | `style: adiciona layout da sidebar com glassmorphism e componentes visuais` |
+| 4 | JS: toggle sidebar + active state + tooltips | `feat: adiciona toggle manual e estados ativos` |
+| 5 | Responsividade + mobile menu | `feat: torna sidebar responsiva para mobile` |
+| 6 | Animações avançadas + micro-interações | `style: aprimora animações e feedback visual` |
+| 7 | Acessibilidade (ARIA, keyboard nav) | `chore: melhora acessibilidade e navegação por teclado` |
+| 8 | Polish + deploy no GitHub Pages | `docs: finaliza projeto e configura GitHub Pages` |
 
 ---
 
