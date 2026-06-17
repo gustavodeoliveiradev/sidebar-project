@@ -207,3 +207,113 @@
   color: var(--color-text-secondary);
   line-height: 1.8;
 }
+
+/* ===================================
+   MOBILE TOGGLE & OVERLAY
+   =================================== */
+
+.mobile-toggle {
+  display: none; /* Escondido no desktop */
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 90;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  color: var(--color-text-primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-fast);
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-toggle:hover {
+  background: var(--color-accent);
+  color: var(--color-bg-primary);
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 95;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===================================
+   RESPONSIVIDADE (MOBILE FIRST)
+   =================================== */
+
+@media (max-width: 768px) {
+  /* Mostra o botão hamburger */
+  .mobile-toggle {
+    display: flex;
+  }
+
+  /* Esconde o toggle do desktop (a setinha) */
+  .sidebar__toggle {
+    display: none;
+  }
+
+  /* Transforma a sidebar em Drawer */
+  .sidebar {
+    left: -100%; /* Esconde totalmente fora da tela */
+    width: 85%;
+    max-width: 320px;
+    top: 0;
+    height: 100vh;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    transition: left var(--transition-slow);
+  }
+
+  /* Estado aberto no mobile */
+  .sidebar.mobile-open {
+    left: 0;
+  }
+
+  /* Ajusta o conteúdo principal para não ficar embaixo do botão */
+  .main-content {
+    margin-left: 0;
+    padding: 90px 20px 20px 20px; 
+  }
+
+  /* FORÇA a exibição dos textos no mobile (já que é uma gaveta larga) */
+  .sidebar__logo-text,
+  .nav-text,
+  .nav-badge {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+  
+  /* Ajusta o header para o logo aparecer */
+  .sidebar__header {
+    justify-content: flex-start;
+    gap: 15px;
+  }
+  
+  .sidebar__logo {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+}
