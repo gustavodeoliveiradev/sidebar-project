@@ -19,23 +19,27 @@ Uma sidebar modular, acessível e personalizável com temas dinâmicos.
 |---|---|
 | HTML semântico com ARIA | ✅ Concluído |
 | CSS Variables + Glassmorphism | ✅ Concluído |
-| Sistema de temas (dark, neon, pastel) | ✅ Concluído |
+| Sistema de temas (5 temas) | ✅ Concluído |
 | Layout da sidebar com glassmorphism | ✅ Concluído |
 | Componentes visuais (tooltips, badges, ripple) | ✅ Concluído |
 | Toggle expandir/colapsar com persistência | ✅ Concluído |
 | Troca de temas com localStorage | ✅ Concluído |
 | Active state nos links | ✅ Concluído |
-| Responsividade mobile | 🚧 Em breve (Dia 5) |
+| Menu mobile responsivo (Drawer + Overlay) | ✅ Concluído |
+| Bloqueio de scroll no mobile | ✅ Concluído |
+| Acessibilidade completa (keyboard nav) | 🚧 Em breve (Dia 6) |
 | Animações avançadas + micro-interações | 🚧 Em breve |
-| Acessibilidade completa (keyboard nav) | 🚧 Em breve |
 | Deploy no GitHub Pages | 🚧 Em breve |
 
 ---
 
 ## 🖼️ Preview
 
-### Tema Dark (Glassmorphism)
-> Sidebar com efeito glassmorphism, bordas neon, tooltips no modo colapsado e badge de notificação com animação pulse.
+### Desktop
+> Sidebar fixa com glassmorphism, toggle de expandir/colapsar, tooltips e badge de notificação com animação pulse.
+
+### Mobile
+> Drawer que desliza da esquerda com overlay escuro, blur no fundo e bloqueio de scroll. Fecha ao clicar fora, em um link ou pressionar ESC.
 
 ---
 
@@ -43,14 +47,14 @@ Uma sidebar modular, acessível e personalizável com temas dinâmicos.
 
 ```
 sidebar-project/
-├── index.html          # Estrutura semântica
+├── index.html          # Estrutura semântica + botão hamburger + overlay
 ├── css/
 │   ├── base.css        # Reset, variáveis globais, fonts
-│   ├── layout.css      # Sidebar, grid, responsive
+│   ├── layout.css      # Sidebar, grid, responsive, drawer mobile
 │   ├── components.css  # Botões, cards, tooltips, badges, ripple
-│   └── themes.css      # Temas dark/neon/pastel
+│   └── themes.css      # Temas dark/neon/pastel/cyberpunk/ocean
 ├── js/
-│   ├── main.js         # Init e event listeners
+│   ├── main.js         # Init, event listeners, mobile menu
 │   ├── toggle.js       # Lógica de expandir/colapsar
 │   ├── theme.js        # Troca de temas
 │   └── utils.js        # Funções auxiliares
@@ -128,10 +132,10 @@ body[data-theme="seu-tema"] {
 | 2 | CSS Variables + sistema de temas + glassmorphism | `style: adiciona CSS variables e tema dark neon` |
 | 3 | Layout da sidebar + componentes visuais | `style: adiciona layout da sidebar com glassmorphism e componentes visuais` |
 | 4 | JS: toggle sidebar + active state + temas + localStorage | `feat: adiciona lógica modular de toggle, troca de temas e estado ativo com localStorage` |
-| 5 | Responsividade + mobile menu | `feat: torna sidebar responsiva para mobile` |
-| 6 | Animações avançadas + micro-interações | `style: aprimora animações e feedback visual` |
-| 7 | Acessibilidade (ARIA, keyboard nav) | `chore: melhora acessibilidade e navegação por teclado` |
-| 8 | Polish + deploy no GitHub Pages | `docs: finaliza projeto e configura GitHub Pages` |
+| 5 | Responsividade + mobile menu (Drawer + Overlay) | `feat: implementa menu mobile responsivo com drawer, overlay e bloqueio de scroll` |
+| 6 | Acessibilidade (keyboard nav, focus, aria-current) | `chore: melhora acessibilidade e navegação por teclado` |
+| 7 | Polish + animações + micro-interações | `style: aprimora animações e feedback visual` |
+| 8 | Deploy no GitHub Pages | `docs: finaliza projeto e configura GitHub Pages` |
 
 ---
 
