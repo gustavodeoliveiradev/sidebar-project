@@ -66,6 +66,12 @@
   --glass-blur: 15px;
 }
 
+html, body {
+  overflow-x: hidden; /* Impede scroll horizontal */
+  width: 100%;
+  max-width: 100vw; /* Garante que não ultrapasse a viewport */
+}
+
 /* Body Base */
 body {
   font-family: var(--font-primary);
@@ -75,8 +81,18 @@ body {
   background: var(--color-bg-primary);
   min-height: 100vh;
   overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Quando o menu mobile está aberto, bloqueia TODO scroll */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
 }
 
 /* Background Animado */

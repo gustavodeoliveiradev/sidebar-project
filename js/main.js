@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initActiveLinks() {
   const navLinks = $$('.nav-link:not(.nav-link--danger)');
-  
+
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       navLinks.forEach(l => l.classList.remove('active'));
@@ -35,18 +35,18 @@ function initMobileMenu() {
   function openMenu() {
     sidebar.classList.add('mobile-open');
     overlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Bloqueia o scroll do fundo
+    document.body.classList.add('menu-open'); // NOVO: bloqueia scroll
   }
 
   function closeMenu() {
     sidebar.classList.remove('mobile-open');
     overlay.classList.remove('active');
-    document.body.style.overflow = ''; // Libera o scroll
+    document.body.classList.remove('menu-open'); // NOVO: libera scroll
   }
 
   // Abre ao clicar no hamburger
   mobileToggle.addEventListener('click', openMenu);
-  
+
   // Fecha ao clicar no overlay
   overlay.addEventListener('click', closeMenu);
 

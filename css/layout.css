@@ -10,7 +10,7 @@
   transition: margin-left var(--transition-slow);
 }
 
-.sidebar.expanded ~ .main-content {
+.sidebar.expanded~.main-content {
   margin-left: var(--sidebar-width-expanded);
 }
 
@@ -213,7 +213,8 @@
    =================================== */
 
 .mobile-toggle {
-  display: none; /* Escondido no desktop */
+  display: none;
+  /* Escondido no desktop */
   position: fixed;
   top: 20px;
   left: 20px;
@@ -265,6 +266,7 @@
    =================================== */
 
 @media (max-width: 768px) {
+
   /* Mostra o botão hamburger */
   .mobile-toggle {
     display: flex;
@@ -277,14 +279,22 @@
 
   /* Transforma a sidebar em Drawer */
   .sidebar {
-    left: -100%; /* Esconde totalmente fora da tela */
+    left: -100%;
+    /* Esconde totalmente fora da tela */
     width: 85%;
     max-width: 320px;
     top: 0;
     height: 100vh;
+    /* Garante altura total */
+    max-height: 100vh;
+    /* Impede overflow vertical */
     border-radius: 0 20px 20px 0;
     box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
     transition: left var(--transition-slow);
+    overflow-y: auto;
+    /* Permite scroll interno se necessário */
+    overflow-x: hidden;
+    /* Impede scroll horizontal */
   }
 
   /* Estado aberto no mobile */
@@ -295,7 +305,7 @@
   /* Ajusta o conteúdo principal para não ficar embaixo do botão */
   .main-content {
     margin-left: 0;
-    padding: 90px 20px 20px 20px; 
+    padding: 90px 20px 20px 20px;
   }
 
   /* FORÇA a exibição dos textos no mobile (já que é uma gaveta larga) */
@@ -305,13 +315,13 @@
     opacity: 1 !important;
     transform: translateX(0) !important;
   }
-  
+
   /* Ajusta o header para o logo aparecer */
   .sidebar__header {
     justify-content: flex-start;
     gap: 15px;
   }
-  
+
   .sidebar__logo {
     opacity: 1 !important;
     transform: translateX(0) !important;
