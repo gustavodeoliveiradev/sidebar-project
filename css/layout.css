@@ -195,17 +195,24 @@
   font-size: var(--font-size-3xl);
   margin-bottom: var(--spacing-md);
   color: var(--color-text-primary);
+  word-wrap: break-word; /* Permite quebra de palavras longas */
+  overflow-wrap: break-word; /* Garante quebra em qualquer navegador */
+  hyphens: auto; /* Adiciona hífens automaticamente */
+  line-height: 1.2; /* Melhora legibilidade */
 }
 
 .main-content .highlight {
   color: var(--color-accent);
   text-shadow: 0 0 20px var(--color-accent-glow);
+  display: inline; /* Garante que não quebre de forma estranha */
 }
 
 .main-content p {
   font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
   line-height: 1.8;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* ===================================
@@ -325,5 +332,55 @@
   .sidebar__logo {
     opacity: 1 !important;
     transform: translateX(0) !important;
+  }
+}
+
+/* ===================================
+   RESPONSIVIDADE - Ajustes de Texto
+   =================================== */
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 90px var(--spacing-md) var(--spacing-md) var(--spacing-md);
+  }
+
+  /* Reduz o tamanho da fonte em telas menores */
+  .main-content h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem); /* Responsivo: mínimo 24px, máximo 32px */
+    line-height: 1.3;
+    margin-bottom: var(--spacing-sm);
+  }
+    .main-content p {
+    font-size: clamp(0.875rem, 3vw, 1.125rem); /* Responsivo */
+    line-height: 1.6;
+  }
+}
+
+/* Telas muito pequenas (320px - 375px) */
+@media (max-width: 425px) {
+  .main-content {
+    padding: 80px var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
+  }
+
+  .main-content h1 {
+    font-size: clamp(1.25rem, 6vw, 1.75rem); /* Ainda menor */
+    line-height: 1.2;
+  }
+
+  .main-content p {
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+  }
+}
+
+/* Mobile S - 320px */
+@media (max-width: 320px) {
+  .main-content h1 {
+    font-size: 1.125rem; /* 18px - mínimo aceitável */
+    word-break: break-word; /* Quebra palavras se necessário */
+  }
+
+  .main-content p {
+    font-size: 0.75rem; /* 12px */
   }
 }
