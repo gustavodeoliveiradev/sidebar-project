@@ -1,8 +1,10 @@
 /**
- * Arquivo principal que inicializa todos os módulos
+ * Arquivo principal - Orquestrador
  */
 import { initSidebarToggle } from './toggle.js';
 import { initThemeSwitcher } from './theme.js';
+import { initMobileMenu } from './mobile.js'; // ️ ATENÇÃO: Veja a nota abaixo!
+import { initKeyboardNavigation } from './a11y.js';
 import { $, $$ } from './utils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,59 +12,44 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeSwitcher();
   initActiveLinks();
   initMobileMenu();
+  initKeyboardNavigation();
 });
 
+/**
+ * Gerencia o estado "ativo" e o aria-current
+ */
 function initActiveLinks() {
   const navLinks = $$('.nav-link:not(.nav-link--danger)');
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      navLinks.forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
+  
+  function setActiveLink(targetLink) {
+    // Reseta todos
+    navLinks.forEach(l => {
+      l.classList.remove('active');
+      l.removeAttribute('aria-current');
     });
-  });
-}
-
-/**
- * NOVO: Lógica do Menu Mobile (Drawer + Overlay)
- */
-function initMobileMenu() {
-  const mobileToggle = $('#mobileToggle');
-  const sidebar = $('#sidebar');
-  const overlay = $('#overlay');
-  const navLinks = $$('.nav-link');
-
-  function openMenu() {
-    sidebar.classList.add('mobile-open');
-    overlay.classList.add('active');
-    document.body.classList.add('menu-open'); // NOVO: bloqueia scroll
+    
+    // Ativa o selecionado
+    targetLink.classList.add('active');
+    targetLink.setAttribute('aria-current', 'page'); // Crucial para leitores de tela
   }
 
-  function closeMenu() {
-    sidebar.classList.remove('mobile-open');
-    overlay.classList.remove('active');
-    document.body.classList.remove('menu-open'); // NOVO: libera scroll
-  }
-
-  // Abre ao clicar no hamburger
-  mobileToggle.addEventListener('click', openMenu);
-
-  // Fecha ao clicar no overlay
-  overlay.addEventListener('click', closeMenu);
-
-  // Fecha ao clicar em um link de navegação
+  // Evento de clique
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
+      setActiveLink(link);
+      
+      // Fecha menu mobile se estiver aberto
       if (window.innerWidth <= 768) {
-        closeMenu();
+        const sidebar = $('#sidebar');
+        sidebar.classList.remove('mobile-open');
+        $('#overlay').classList.remove('active');
+        document.body.classList.remove('menu-open');
       }
     });
   });
-
-  // Fecha ao apertar a tecla ESC (Acessibilidade)
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && sidebar.classList.contains('mobile-open')) {
-      closeMenu();
-    }
-  });
+  
+  // Define o ativo inicial baseado na URL (ex: #home)
+  const currentHash = window.location.hash || '#home';
+  const initialActive = document.querySelector(`.nav-link[href="${currentHash}"]`);
+  if (initialActive) setActiveLink(initialActive);
 }

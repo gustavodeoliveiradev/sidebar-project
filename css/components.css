@@ -140,25 +140,46 @@
   position: absolute;
   left: calc(100% + 15px);
   top: 50%;
-  transform: translateY(-50%) translateX(-10px);
+  transform: translateY(-50%) translateX(-5px);
   background: var(--color-bg-secondary);
   color: var(--color-text-primary);
-  padding: var(--spacing-xs) var(--spacing-md);
-  border-radius: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
   font-size: var(--font-size-sm);
   font-weight: 500;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Efeito elástico */
   box-shadow: var(--shadow-md);
   border: 1px solid var(--glass-border);
   z-index: var(--z-tooltip);
 }
 
-.sidebar:not(.expanded) .nav-link[data-tooltip]:hover::after {
+/* Seta do tooltip (triângulo) */
+.nav-link[data-tooltip]::before {
+  content: '';
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent var(--color-bg-secondary) transparent transparent;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: var(--z-tooltip);
+}
+
+.sidebar:not(.expanded) .nav-link[data-tooltip]:hover::after,
+.sidebar:not(.expanded) .nav-link[data-tooltip]:focus-visible::after {
   opacity: 1;
   transform: translateY(-50%) translateX(0);
+}
+
+.sidebar:not(.expanded) .nav-link[data-tooltip]:hover::before,
+.sidebar:not(.expanded) .nav-link[data-tooltip]:focus-visible::before {
+  opacity: 1;
 }
 
 /* Efeito de Pulse no Badge */

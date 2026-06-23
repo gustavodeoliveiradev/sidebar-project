@@ -150,3 +150,34 @@ body::before {
   white-space: nowrap;
   border: 0;
 }
+
+/* ===================================
+   ACESSIBILIDADE - FOCO VISÍVEL
+   =================================== */
+
+/* Remove o outline padrão feio de todos os elementos */
+*:focus {
+  outline: none;
+}
+
+/* Adiciona um foco customizado apenas para navegação por teclado */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+  transition: outline var(--transition-fast);
+}
+
+/* Ajuste específico para os links da sidebar (foco interno) */
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+  box-shadow: 0 0 0 4px rgba(0, 238, 255, 0.2); /* Anel de glow extra */
+}
+
+/* Ajuste para botões (toggle e theme) */
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 10px var(--color-accent-glow);
+}
