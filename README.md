@@ -27,9 +27,9 @@ Uma sidebar modular, acessível e personalizável com temas dinâmicos.
 | Active state nos links | ✅ Concluído |
 | Menu mobile responsivo (Drawer + Overlay) | ✅ Concluído |
 | Bloqueio de scroll no mobile | ✅ Concluído |
-| Acessibilidade completa (keyboard nav) | 🚧 Em breve (Dia 6) |
-| Animações avançadas + micro-interações | 🚧 Em breve |
-| Deploy no GitHub Pages | 🚧 Em breve |
+| Acessibilidade (keyboard nav, focus-visible, aria-current) | ✅ Concluído |
+| Micro-interações e polish visual | ✅ Concluído |
+| Deploy no GitHub Pages | 🚧 Em breve (Dia 7) |
 
 ---
 
@@ -49,7 +49,7 @@ Uma sidebar modular, acessível e personalizável com temas dinâmicos.
 sidebar-project/
 ├── index.html          # Estrutura semântica + botão hamburger + overlay
 ├── css/
-│   ├── base.css        # Reset, variáveis globais, fonts
+│   ├── base.css        # Reset, variáveis globais, fonts, focus-visible
 │   ├── layout.css      # Sidebar, grid, responsive, drawer mobile
 │   ├── components.css  # Botões, cards, tooltips, badges, ripple
 │   └── themes.css      # Temas dark/neon/pastel/cyberpunk/ocean
@@ -57,6 +57,8 @@ sidebar-project/
 │   ├── main.js         # Init, event listeners, mobile menu
 │   ├── toggle.js       # Lógica de expandir/colapsar
 │   ├── theme.js        # Troca de temas
+│   ├── mobile.js       # Menu mobile (drawer + overlay)
+│   ├── a11y.js         # Acessibilidade e navegação por teclado
 │   └── utils.js        # Funções auxiliares
 ├── assets/
 │   └── icons/          # SVGs personalizados (opcional)
@@ -113,6 +115,18 @@ body[data-theme="seu-tema"] {
 
 ---
 
+## ♿ Acessibilidade
+
+A sidebar foi construída com foco em acessibilidade desde o início:
+
+- **Navegação por teclado**: Use `Tab` para focar a sidebar, `↑` `↓` para navegar entre itens, `Home`/`End` para ir ao primeiro/último item
+- **Focus visible customizado**: Glow neon ao invés do outline padrão do navegador
+- **ARIA attributes**: `aria-expanded`, `aria-current="page"`, `aria-label`, `role="menubar"` para leitores de tela
+- **Skip link**: Link para pular direto para o conteúdo principal
+- **Fechamento com ESC**: Menu mobile fecha ao pressionar `Escape`
+
+---
+
 ## 🛠️ Tecnologias
 
 - **HTML5** semântico + ARIA
@@ -133,9 +147,8 @@ body[data-theme="seu-tema"] {
 | 3 | Layout da sidebar + componentes visuais | `style: adiciona layout da sidebar com glassmorphism e componentes visuais` |
 | 4 | JS: toggle sidebar + active state + temas + localStorage | `feat: adiciona lógica modular de toggle, troca de temas e estado ativo com localStorage` |
 | 5 | Responsividade + mobile menu (Drawer + Overlay) | `feat: implementa menu mobile responsivo com drawer, overlay e bloqueio de scroll` |
-| 6 | Acessibilidade (keyboard nav, focus, aria-current) | `chore: melhora acessibilidade e navegação por teclado` |
-| 7 | Polish + animações + micro-interações | `style: aprimora animações e feedback visual` |
-| 8 | Deploy no GitHub Pages | `docs: finaliza projeto e configura GitHub Pages` |
+| 6 | Acessibilidade + polish visual | `feat: implementa acessibilidade (navegação por teclado, focus-visible, aria-current) e polish visual` |
+| 7 | Finalização + Deploy no GitHub Pages | `docs: finaliza projeto e configura GitHub Pages` |
 
 ---
 
