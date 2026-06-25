@@ -1,0 +1,24 @@
+# Dependências
+node_modules/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Live Server cache
+.live-server/
+
+# Build (se um dia tiver)
+dist/
+build/

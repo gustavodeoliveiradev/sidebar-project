@@ -1,157 +1,188 @@
+<div align="center">
+
 # ⚡ Nexus Sidebar
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222?logo=github&logoColor=white)](https://pages.github.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/status-em%20desenvolvimento-orange)](https://github.com/gustavodeoliveiradev/sidebar-project)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-Uma sidebar modular, acessível e personalizável com temas dinâmicos.
+**Uma sidebar modular, acessível e com design glassmorphism premium.**
 
-> **Status:** 🚧 Em desenvolvimento — [Roadmap de 7 dias](#-roadmap)
+[🚀 Ver Demo](https://gustavodeoliveiradev.github.io/sidebar-project/) · [📂 Reportar Bug](https://github.com/gustavodeoliveiradev/sidebar-project/issues) · [💡 Sugerir Feature](https://github.com/gustavodeoliveiradev/sidebar-project/issues)
 
----
-
-## ✨ Funcionalidades
-
-| Funcionalidade | Status |
-|---|---|
-| HTML semântico com ARIA | ✅ Concluído |
-| CSS Variables + Glassmorphism | ✅ Concluído |
-| Sistema de temas (5 temas) | ✅ Concluído |
-| Layout da sidebar com glassmorphism | ✅ Concluído |
-| Componentes visuais (tooltips, badges, ripple) | ✅ Concluído |
-| Toggle expandir/colapsar com persistência | ✅ Concluído |
-| Troca de temas com localStorage | ✅ Concluído |
-| Active state nos links | ✅ Concluído |
-| Menu mobile responsivo (Drawer + Overlay) | ✅ Concluído |
-| Bloqueio de scroll no mobile | ✅ Concluído |
-| Acessibilidade (keyboard nav, focus-visible, aria-current) | ✅ Concluído |
-| Micro-interações e polish visual | ✅ Concluído |
-| Deploy no GitHub Pages | 🚧 Em breve (Dia 7) |
+</div>
 
 ---
 
-## 🖼️ Preview
+## 📸 Preview
 
-### Desktop
-> Sidebar fixa com glassmorphism, toggle de expandir/colapsar, tooltips e badge de notificação com animação pulse.
-
-### Mobile
-> Drawer que desliza da esquerda com overlay escuro, blur no fundo e bloqueio de scroll. Fecha ao clicar fora, em um link ou pressionar ESC.
-
----
-
-## 🗂️ Estrutura do Projeto
-
-```
-sidebar-project/
-├── index.html          # Estrutura semântica + botão hamburger + overlay
-├── css/
-│   ├── base.css        # Reset, variáveis globais, fonts, focus-visible
-│   ├── layout.css      # Sidebar, grid, responsive, drawer mobile
-│   ├── components.css  # Botões, cards, tooltips, badges, ripple
-│   └── themes.css      # Temas dark/neon/pastel/cyberpunk/ocean
-├── js/
-│   ├── main.js         # Init, event listeners, mobile menu
-│   ├── toggle.js       # Lógica de expandir/colapsar
-│   ├── theme.js        # Troca de temas
-│   ├── mobile.js       # Menu mobile (drawer + overlay)
-│   ├── a11y.js         # Acessibilidade e navegação por teclado
-│   └── utils.js        # Funções auxiliares
-├── assets/
-│   └── icons/          # SVGs personalizados (opcional)
-├── README.md
-└── .gitignore
-```
+<div align="center">
+  <img src="/img/img-1.png" alt="Preview da Sidebar" width="100%">
+  <img src="/img/img-2.png" alt="Preview da Sidebar" width="100%">
+  <img src="/img/img-3.png" alt="Preview da Sidebar" width="100%">
+  <img src="/img/img-4.png" alt="Preview da Sidebar" width="100%">
+  <img src="/img/img-5.png" alt="Preview da Sidebar" width="100%">
+</div>
 
 ---
 
-## 🚀 Como usar
+## ✨ Features
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/gustavodeoliveiradev/sidebar-project.git
-   cd sidebar-project
-   ```
-
-2. Abra o `index.html` no navegador:
-   ```bash
-   # ⚠️ Requer Live Server (ES Modules não funcionam em file://)
-   # VS Code: clique com botão direito em index.html → "Open with Live Server"
-   # Ou use: npx serve
-   ```
-
----
-
-## 🎨 Sistema de Temas
-
-O projeto utiliza **CSS Variables** para controle dinâmico de cores, permitindo troca instantânea de temas sem recarregar a página. As preferências são salvas automaticamente via **localStorage**.
-
-### Temas disponíveis
-| Tema | Descrição | Status |
-|---|---|---|
-| **Dark Neon** | Fundo escuro com glassmorphism e neon | ✅ Pronto |
-| **Cyberpunk** | Cores vibrantes com glow roxo/ciano | ✅ Pronto |
-| **Sunset Pastel** | Tons quentes suaves e minimalistas | ✅ Pronto |
-| **Forest Minimal** | Verde natural e clean | ✅ Pronto |
-| **Ocean Deep** | Azul profundo com acentos aqua | ✅ Pronto |
-
-### Como customizar
-
-As variáveis CSS estão centralizadas em `css/base.css`. Para criar um novo tema:
-
-```css
-/* Adicione uma nova classe no body */
-body[data-theme="seu-tema"] {
-  --bg-primary: #sua-cor;
-  --bg-glass: rgba(255, 255, 255, 0.1);
-  --text-primary: #sua-cor-texto;
-  --accent: #sua-cor-destaque;
-  /* ... e assim por diante */
-}
-```
-
----
-
-## ♿ Acessibilidade
-
-A sidebar foi construída com foco em acessibilidade desde o início:
-
-- **Navegação por teclado**: Use `Tab` para focar a sidebar, `↑` `↓` para navegar entre itens, `Home`/`End` para ir ao primeiro/último item
-- **Focus visible customizado**: Glow neon ao invés do outline padrão do navegador
-- **ARIA attributes**: `aria-expanded`, `aria-current="page"`, `aria-label`, `role="menubar"` para leitores de tela
-- **Skip link**: Link para pular direto para o conteúdo principal
-- **Fechamento com ESC**: Menu mobile fecha ao pressionar `Escape`
+- 🎨 **5 Temas Dinâmicos**: Dark Neon, Cyberpunk, Sunset Pastel, Forest Minimal e Ocean Deep
+- 🪟 **Glassmorphism Premium**: Efeito de vidro fosco com `backdrop-filter`
+- 📱 **100% Responsivo**: Drawer mobile com overlay e bloqueio de scroll
+- ⌨️ **Acessibilidade Total**: Navegação por teclado (Tab, Setas, Home, End, ESC)
+- 💾 **Persistência Local**: Tema e estado da sidebar salvos no `localStorage`
+- 🎯 **Micro-interações**: Tooltips, ripple effect, pulse animations e transições suaves
+- 🏗️ **Arquitetura Modular**: CSS e JS separados por responsabilidade
+- 🔊 **ARIA Labels**: Compatível com leitores de tela
 
 ---
 
 ## 🛠️ Tecnologias
 
-- **HTML5** semântico + ARIA
-- **CSS3** com variáveis, Glassmorphism e `backdrop-filter`
-- **JavaScript** vanilla (ES6+ módulos)
-- **Font Awesome** 6.4.0 para ícones
-- **Google Fonts** (Inter)
-- **localStorage** para persistência de preferências
+| Tecnologia | Uso |
+|------------|-----|
+| HTML5 Semântico | Estrutura acessível com `<aside>`, `<nav>`, `<main>` |
+| CSS3 Moderno | Variables, Grid, Flexbox, `clamp()`, `backdrop-filter` |
+| JavaScript ES6+ | Módulos (import/export), DOM, localStorage |
+| Font Awesome 6 | Ícones vetoriais escaláveis |
+| Google Fonts (Inter) | Tipografia moderna e legível |
 
 ---
 
-## 🗓️ Roadmap
+## 📁 Estrutura do Projeto
+
+```
+sidebar-project/
+├── index.html          # Estrutura semântica
+├── README.md           # Documentação
+├── .gitignore          # Arquivos ignorados pelo Git
+├── img/
+│   ├── img-1        # Dark Neon demo
+│   ├── img-2        # Cyberpunk demo
+│   ├── img-3        # Sunset Pastel demo
+│   ├── img-4        # Forest Minimal demo
+│   └── img-5        # Ocean Deep demo
+├── css/
+│   ├── base.css        # Reset, variáveis globais, acessibilidade
+│   ├── layout.css      # Estrutura da sidebar e responsividade
+│   ├── components.css  # Componentes visuais (links, badges, tooltips)
+│   └── themes.css      # Sistema de 5 temas com CSS Variables
+└── js/
+    ├── main.js         # Orquestrador principal
+    ├── toggle.js       # Lógica de expandir/colapsar
+    ├── theme.js        # Troca cíclica de temas
+    ├── mobile.js       # Menu mobile (drawer + overlay)
+    ├── a11y.js         # Navegação por teclado
+    └── utils.js        # Helpers (localStorage, query selectors)
+```
+
+---
+
+## 🚀 Instalação e Uso
+
+### Pré-requisitos
+- Navegador moderno (Chrome, Firefox, Edge, Safari)
+- **Importante**: Use um servidor local (ES Modules não funcionam via `file://`)
+
+### Opção 1: Live Server (VS Code)
+1. Instale a extensão **Live Server** no VS Code
+2. Abra o `index.html`
+3. Clique com o botão direito → **"Open with Live Server"**
+
+### Opção 2: Terminal
+```bash
+# Com Python
+python -m http.server 8000
+
+# Com Node.js
+npx serve
+
+# Com PHP
+php -S localhost:8000
+```
+Acesse `http://localhost:8000` no navegador.
+
+---
+
+## 🎨 Temas Disponíveis
+
+| Tema | Cor Principal | Vibe |
+|------|---------------|------|
+| 🌑 Dark Neon | `#00eeff` | Futurista, tech |
+| 🌸 Cyberpunk | `#ff1493` | Retrô-futurista |
+| 🌅 Sunset Pastel | `#ffb7c5` | Suave, elegante |
+| 🌲 Forest Minimal | `#90ee90` | Natural, clean |
+| 🌊 Ocean Deep | `#00bfff` | Profundo, sereno |
+
+---
+
+## ⌨️ Atalhos de Teclado
+
+| Tecla | Ação |
+|-------|------|
+| `Tab` | Navegar entre elementos focáveis |
+| `Enter` / `Espaço` | Ativar link/botão focado |
+| `⬇️` | Próximo item do menu |
+| `⬆️` | Item anterior do menu |
+| `Home` | Ir para o primeiro item |
+| `End` | Ir para o último item |
+| `ESC` | Fechar menu mobile |
+
+---
+
+## 📅 Desenvolvimento (7 Dias, 7 Commits)
+
+Este projeto foi construído seguindo a metodologia de 1 commit por dia:
 
 | Dia | Foco | Commit |
-|---|---|---|
-| 1 | Estrutura HTML semântica + setup | `feat: setup inicial com HTML semântico e estrutura de pastas` |
-| 2 | CSS Variables + sistema de temas + glassmorphism | `style: adiciona CSS variables e tema dark neon` |
-| 3 | Layout da sidebar + componentes visuais | `style: adiciona layout da sidebar com glassmorphism e componentes visuais` |
-| 4 | JS: toggle sidebar + active state + temas + localStorage | `feat: adiciona lógica modular de toggle, troca de temas e estado ativo com localStorage` |
-| 5 | Responsividade + mobile menu (Drawer + Overlay) | `feat: implementa menu mobile responsivo com drawer, overlay e bloqueio de scroll` |
-| 6 | Acessibilidade + polish visual | `feat: implementa acessibilidade (navegação por teclado, focus-visible, aria-current) e polish visual` |
-| 7 | Finalização + Deploy no GitHub Pages | `docs: finaliza projeto e configura GitHub Pages` |
+|-----|------|--------|
+| 1 | Estrutura HTML semântica | `feat: setup inicial com HTML semântico e estrutura de pastas` |
+| 2 | CSS Variables + temas | `style: adiciona CSS variables e tema dark neon` |
+| 3 | Layout + componentes | `style: adiciona layout da sidebar com glassmorphism e componentes visuais` |
+| 4 | JavaScript modular | `feat: adiciona lógica modular de toggle, troca de temas e estado ativo com localStorage` |
+| 5 | Responsividade mobile | `feat: implementa menu mobile responsivo com drawer, overlay e bloqueio de scroll` |
+| 6 | Acessibilidade (A11y) | `feat: implementa acessibilidade (navegação por teclado, focus-visible, aria-current) e polish visual` |
+| 7 | README + Deploy | `docs: finaliza projeto e configura GitHub Pages` |
 
 ---
 
-## 📝 Licença
+## 🌐 Deploy
 
-MIT © [Gustavo Oliveira](https://github.com/gustavodeoliveiradev)
+Este projeto está hospedado no **GitHub Pages**:
+
+👉 **[Ver ao vivo](https://gustavodeoliveiradev.github.io/sidebar-project)**
+
+### Como fazer seu próprio deploy:
+1. Crie um repositório no GitHub
+2. Envie os arquivos: `git push origin main`
+3. Vá em **Settings → Pages**
+4. Em "Source", selecione a branch `main` e pasta `/` (root)
+5. Clique em **Save** e aguarde 1-2 minutos
+
+Seu site estará em: `https://gustavodeoliveiradev.github.io/sidebar-project`
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para:
+- Abrir uma issue para reportar bugs
+- Fazer um fork e enviar um pull request
+- Sugerir novos temas ou features
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+<div align="center">
+
+Feito com 💙 por [Gustavo Oliveira](https://github.com/gustavodeoliveiradev)
+
+⭐ Se esse projeto te ajudou, deixa uma star no repositório!
+
+</div>
