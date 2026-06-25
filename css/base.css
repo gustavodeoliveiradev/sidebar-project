@@ -116,6 +116,11 @@ body::before {
   50% { opacity: 0.8; transform: scale(1.1); }
 }
 
+main, .main-content {
+  position: relative;
+  z-index: 1;
+}
+
 /* Skip Link (Acessibilidade) */
 .skip-link {
   position: absolute;
